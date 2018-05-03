@@ -1,0 +1,24 @@
+<nz-layout class="container">
+    <nz-header></nz-header>
+    <nz-content>
+        <div class="top">
+            <div class="head">
+                <a [routerLink]="['/']">
+                    <img class="logo" src="./assets/img/logo-color.svg">
+                    <span class="title">ng-alain</span>
+                </a>
+            </div>
+            <p class="desc">{{description}}</p>
+        </div>
+        <router-outlet></router-outlet>
+    </nz-content>
+    <nz-footer>
+        <global-footer [links]="links">
+            <ng-template #copyright>
+                Copyright
+                <nz-icon nzType="copyright"></nz-icon> 2017
+                <a href="//github.com/cipchk" target="_blank">卡色</a>出品
+            </ng-template>
+        </global-footer>
+    </nz-footer>
+</nz-layout>
