@@ -18,6 +18,7 @@ import { UrlHelper } from '@core/utils/url-helper';
 import { AppSessionService } from '@core/session/app-session.service';
 import { ITokenService, DA_SERVICE_TOKEN, JWTTokenModel, SimpleTokenModel } from '@delon/auth';
 import { ReuseTabService } from '@delon/abc';
+import { StartupService } from '@core/startup/startup.service';
 
 @Injectable()
 export class LoginService {
@@ -37,6 +38,7 @@ export class LoginService {
         private _tokenService: TokenService,
         private _logService: LogService,
         private _sessionService: AppSessionService,
+        private _startUpService: StartupService,
         @Optional() @Inject(ReuseTabService) private _reuseTabService: ReuseTabService,
         @Inject(DA_SERVICE_TOKEN) private _abcTokenService: ITokenService
     ) {
@@ -87,14 +89,15 @@ export class LoginService {
             tokenExpireDate,
             abp.appPath
         );
-        this._sessionService.init().then(() => {
+        this._startUpService.load().then(() => {
             let initialUrl = UrlHelper.initialUrl;
 
             if (initialUrl.indexOf('/login') > 0) {
                 initialUrl = AppConsts.appBaseUrl;
             }
             this._reuseTabService.clear();
-            this._router.navigate([initialUrl]);
+            // this._router.navigate([initialUrl]);
+            location.href = '/';
         });
     }
 

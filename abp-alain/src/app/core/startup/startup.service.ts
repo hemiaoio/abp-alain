@@ -65,10 +65,10 @@ export class StartupService {
                 const appData: any = result.appData;
                 const abpData: any = result.abpData;
                 extend(true, abp, abpData.result);
-                console.log(abp);
                 abp.clock.provider = this.getCurrentClockProvider(abp.clock.provider);
                 moment.locale(abp.localization.currentLanguage.name);
                 this.checkMenusPermission(appData.menus);
+                this.menuService.clear();
                 this.menuService.add(appData.menus);
                 return Observable.fromPromise(this._sessionService.init());
             })
@@ -93,7 +93,7 @@ export class StartupService {
      */
     private checkMenusPermission(menus: Menu[]) {
         menus.forEach(menu => {
-            menu.hide = menu.permission && !abp.auth.isGranted(menu.permission);
+            menu.hide = menu.permission && !abp.auth.isAnyGranted(...(menu.permission.split(',')));
 
             if (menu.children !== undefined && menu.children.length > 0) {
                 this.checkMenusPermission(menu.children);

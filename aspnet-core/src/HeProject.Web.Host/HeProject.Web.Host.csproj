@@ -12,6 +12,10 @@
     <DefineConstants>FEATURE_SIGNALR_ASPNETCORE</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Properties\PublishProfiles\nuget.hamazon.cn.pubxml" />
+    <None Remove="Properties\PublishProfiles\registry.hub.docker.com_nuget.hamazon.cn_443.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Swagger\index.html" />
   </ItemGroup>
   <ItemGroup>
@@ -49,5 +53,8 @@
     <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0" />
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
 </Project>

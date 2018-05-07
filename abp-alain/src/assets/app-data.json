@@ -2,40 +2,40 @@
     "app": {
         "name": "ng-alain",
         "description": "Ng-zorro admin panel front-end framework",
-        "remoteServiceBaseUrl": "http://localhost:5000",
+        "remoteServiceBaseUrl": "http://47.98.113.21",
         "appBaseUrl": "http://localhost:4200"
     },
     "menus": [{
             "text": "仪表盘",
             "translate": "main_navigation",
-            "group": true,
-            "children": [{
-                "text": "租户",
-                "translate": "page-tenant",
-                "link": "/tenant/list",
-                "icon": "icon-rocket",
-                "permission": "Pages.Tenants",
-                "children": []
-            }]
+            "link": "/dashboard",
+            "group": false
+        },
+        {
+            "text": "租户",
+            "translate": "page-tenant",
+            "link": "/tenant/list",
+            "icon": "icon-rocket",
+            "permission": "Pages.Tenants",
+            "group": false
         },
         {
             "text": "系统管理",
             "translate": "admin",
             "link": "/admin",
             "icon": "icon-map",
-            "acl": "role-b",
-            "permission": "Pages.Administration",
+            "permission": "Pages.Roles,Pages.Users",
             "children": [{
                     "text": "角色管理",
                     "link": "/admin/roles",
                     "translate": "admin-role",
-                    "permission": "Pages.Administration.Roles"
+                    "permission": "Pages.Roles"
                 },
                 {
                     "text": "用户管理",
                     "link": "/admin/users",
                     "translate": "admin-users",
-                    "permission": "Pages.Administration.Users"
+                    "permission": "Pages.Users"
                 }
             ]
         }

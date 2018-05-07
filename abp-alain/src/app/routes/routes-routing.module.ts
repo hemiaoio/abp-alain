@@ -29,7 +29,8 @@ const routes: Routes = [
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
             { path: 'dashboard', component: DashboardComponent, data: { title: '仪表盘' } },
             // 业务子模块
-            // { path: 'widgets', loadChildren: './widgets/widgets.module#WidgetsModule' }
+            { path: 'tenant', loadChildren: './tenant/tenant.module#TenantModule' },
+            { path: 'admin', loadChildren: './admin/admin.module#AdminModule' },
         ]
     },
     // 全屏布局

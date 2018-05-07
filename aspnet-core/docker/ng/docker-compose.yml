@@ -1,17 +1,22 @@
 version: '2'
 
 services:
-
+    abp_migrator:
+        build: abp/migrator
+        volumes:
+            - "./App_Data:/app/App_Data"
     abp_host:
-        image: abp/host
+        build: abp/host
         environment:
             - ASPNETCORE_ENVIRONMENT=Staging
         ports:
             - "9901:80"
         volumes:
-            - "./Host-Logs:/app/App_Data/Logs"
+            - "./App_Data:/app/App_Data"
 
     abp_ng:
-        image: abp/ng
+        build: abp/ng
         ports:
             - "9902:80"
+        depends_on:
+            - abp_host
