@@ -1,5 +1,4 @@
 FROM microsoft/aspnetcore
-
 WORKDIR /app
 COPY . .
 

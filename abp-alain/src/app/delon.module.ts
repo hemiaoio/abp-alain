@@ -120,7 +120,6 @@ export const ZORROMODULES = [
 // region: @delon/abc modules
 import {
     AdSimpleTableModule,
-    // AdReuseTabModule,
     AdAvatarListModule,
     AdChartsModule,
     AdCountDownModule,

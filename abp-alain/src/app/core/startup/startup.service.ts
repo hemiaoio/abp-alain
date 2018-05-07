@@ -64,8 +64,9 @@ export class StartupService {
             }).mergeMap((result: any) => {
                 const appData: any = result.appData;
                 const abpData: any = result.abpData;
-                extend(true, abp, abpData);
-                abp.clock.provider = this.getCurrentClockProvider(abpData.result.clock.provider);
+                extend(true, abp, abpData.result);
+                console.log(abp);
+                abp.clock.provider = this.getCurrentClockProvider(abp.clock.provider);
                 moment.locale(abp.localization.currentLanguage.name);
                 this.checkMenusPermission(appData.menus);
                 this.menuService.add(appData.menus);
@@ -75,12 +76,12 @@ export class StartupService {
                 (error) => { console.log(error); },
                 () => { resolve(null); });
     }
-    private getCurrentClockProvider(currentProviderName: string): abp.timing.IClockProvider {
-        if (currentProviderName === 'unspecifiedClockProvider') {
+    private getCurrentClockProvider(currentProviderName: abp.timing.IClockProvider): abp.timing.IClockProvider {
+        if (currentProviderName === abp.timing.unspecifiedClockProvider) {
             return abp.timing.unspecifiedClockProvider;
         }
 
-        if (currentProviderName === 'utcClockProvider') {
+        if (currentProviderName === abp.timing.utcClockProvider) {
             return abp.timing.utcClockProvider;
         }
         return abp.timing.localClockProvider;
