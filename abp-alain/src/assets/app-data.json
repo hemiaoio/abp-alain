@@ -6,38 +6,105 @@
         "appBaseUrl": "http://localhost:4200"
     },
     "menus": [{
-            "text": "仪表盘",
+            "text": "",
             "translate": "main_navigation",
-            "link": "/dashboard",
-            "group": false
-        },
-        {
-            "text": "租户",
-            "translate": "page-tenant",
-            "link": "/tenant/list",
-            "icon": "icon-rocket",
-            "permission": "Pages.Tenants",
-            "group": false
-        },
-        {
-            "text": "系统管理",
-            "translate": "admin",
-            "link": "/admin",
-            "icon": "icon-map",
-            "permission": "Pages.Roles,Pages.Users",
+            "group": true,
             "children": [{
+                    "text": "首页",
+                    "link": "/dashboard",
+                    "icon": "icon-home"
+                }, {
+                    "text": "租户管理",
+                    "link": "/tenant/list",
+                    "translate": "tenants",
+                    "icon": "anticon anticon-switcher",
+                    "permission": "Pages.Tenants"
+                }, {
                     "text": "角色管理",
                     "link": "/admin/roles",
-                    "translate": "admin-role",
+                    "translate": "admin-roles",
+                    "icon": "anticon anticon-solution",
                     "permission": "Pages.Roles"
                 },
                 {
                     "text": "用户管理",
                     "link": "/admin/users",
                     "translate": "admin-users",
+                    "icon": "anticon anticon-team",
                     "permission": "Pages.Users"
+                },
+                {
+                    "text": "关于",
+                    "link": "/about",
+                    "translate": "about",
+                    "icon": "anticon anticon-info-circle-o"
+                },
+                {
+                    "text": "多级菜单",
+                    "icon": "anticon anticon-bars",
+                    "translate": "mutil-level",
+                    "children": [{
+                            "text": "ASP.NET Boilerplate",
+                            "children": [{
+                                    "text": "Home",
+                                    "target": "_blank",
+                                    "externalLink": "https://aspnetboilerplate.com/?ref=abptmpl"
+                                },
+                                {
+                                    "text": "Templates",
+                                    "target": "_blank",
+                                    "externalLink": "https://aspnetboilerplate.com/Templates?ref=abptmpl"
+                                },
+                                {
+                                    "text": "Samples",
+                                    "target": "_blank",
+                                    "externalLink": "https://aspnetboilerplate.com/Samples?ref=abptmpl"
+                                },
+                                {
+                                    "text": "Documents",
+                                    "target": "_blank",
+                                    "externalLink": "https://aspnetboilerplate.com/Pages/Documents?ref=abptmpl"
+                                }
+                            ]
+                        },
+                        {
+                            "text": "ASP.NET Zero",
+                            "children": [{
+                                    "text": "Home",
+                                    "target": "_blank",
+                                    "externalLink": "https://aspnetzero.com?ref=abptmpl"
+                                },
+                                {
+                                    "text": "Description",
+                                    "target": "_blank",
+                                    "externalLink": "https://aspnetzero.com/?ref=abptmpl#description"
+                                },
+                                {
+                                    "text": "Features",
+                                    "target": "_blank",
+                                    "externalLink": "https://aspnetzero.com/?ref=abptmpl#features"
+                                },
+                                {
+                                    "text": "Pricing",
+                                    "target": "_blank",
+                                    "externalLink": "https://aspnetzero.com/?ref=abptmpl#pricing"
+                                },
+                                {
+                                    "text": "Faq",
+                                    "target": "_blank",
+                                    "externalLink": "https://aspnetzero.com/Faq?ref=abptmpl"
+                                },
+                                {
+                                    "text": "Documents",
+                                    "target": "_blank",
+                                    "externalLink": "https://aspnetzero.com/Documents?ref=abptmpl"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }
+
     ]
 }

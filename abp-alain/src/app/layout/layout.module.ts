@@ -5,6 +5,7 @@ import { LayoutDefaultComponent } from './default/default.component';
 import { LayoutFullScreenComponent } from './fullscreen/fullscreen.component';
 import { HeaderComponent } from './default/header/header.component';
 import { SidebarComponent } from './default/sidebar/sidebar.component';
+import { SidebarFooterComponent } from './default/sidebar/sidebar-footer/sidebar-footer.component';
 import { HeaderSearchComponent } from './default/header/components/search.component';
 import { HeaderThemeComponent } from './default/header/components/theme.component';
 import { HeaderNotifyComponent } from './default/header/components/notify.component';
@@ -18,7 +19,8 @@ const COMPONENTS = [
     LayoutDefaultComponent,
     LayoutFullScreenComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    SidebarFooterComponent
 ];
 
 const HEADERCOMPONENTS = [

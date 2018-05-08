@@ -1,4 +1,4 @@
-import { AppComponentBase } from './../../../core/app-component-base';
+import { AppComponentBase } from '@core/app-component-base';
 import { extend } from '@core/utils/extend';
 import { Component, Injector } from '@angular/core';
 import { NzMessageService } from 'ng-zorro-antd';

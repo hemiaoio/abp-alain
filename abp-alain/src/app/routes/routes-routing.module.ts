@@ -18,6 +18,7 @@ import { Exception404Component } from './exception/404.component';
 import { Exception500Component } from './exception/500.component';
 import { AppRouteGuard } from '@core/auth/app-route-guard';
 import { BaseComponent } from './passport/base/base.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
     {
@@ -31,6 +32,7 @@ const routes: Routes = [
             // 业务子模块
             { path: 'tenant', loadChildren: './tenant/tenant.module#TenantModule' },
             { path: 'admin', loadChildren: './admin/admin.module#AdminModule' },
+            { path: 'about', component: AboutComponent, data: { title: '关于' } }
         ]
     },
     // 全屏布局
