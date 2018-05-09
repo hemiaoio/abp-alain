@@ -14,6 +14,7 @@ import { HeaderIconComponent } from './default/header/components/icon.component'
 import { HeaderFullScreenComponent } from './default/header/components/fullscreen.component';
 import { HeaderStorageComponent } from './default/header/components/storage.component';
 import { HeaderUserComponent } from './default/header/components/user.component';
+import { HeaderI18nComponent } from './default/header/components/i18n.component';
 
 const COMPONENTS = [
     LayoutDefaultComponent,
@@ -31,7 +32,8 @@ const HEADERCOMPONENTS = [
     HeaderFullScreenComponent,
     HeaderThemeComponent,
     HeaderStorageComponent,
-    HeaderUserComponent
+    HeaderUserComponent,
+    HeaderI18nComponent
 ];
 
 // passport

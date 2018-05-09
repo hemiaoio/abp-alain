@@ -12,7 +12,7 @@ import { RoutesModule } from './routes/routes.module';
 import { LayoutModule } from './layout/layout.module';
 import { StartupService } from '@core/startup/startup.service';
 import { DefaultInterceptor } from '@core/net/default.interceptor';
-import { AlainAuthModule, SimpleInterceptor } from '@delon/auth';
+import { SimpleInterceptor } from '@delon/auth';
 // angular i18n
 import { registerLocaleData } from '@angular/common';
 import localeZhHans from '@angular/common/locales/zh-Hans';
@@ -28,7 +28,6 @@ export function StartupServiceFactory(startupService: StartupService): Function 
 }
 
 export function getRemoteServiceBaseUrl() {
-    console.log(AppConsts.remoteServiceBaseUrl);
     return AppConsts.remoteServiceBaseUrl;
 }
 
@@ -37,11 +36,10 @@ export function getRemoteServiceBaseUrl() {
         AppComponent
     ],
     imports: [
-        BrowserModule,
+        BrowserModule, 
         BrowserAnimationsModule,
-        HttpClientModule,
+        HttpClientModule, 
         AbpModule,
-        AlainAuthModule.forRoot(),
         DelonModule.forRoot(),
         CoreModule,
         SharedModule,

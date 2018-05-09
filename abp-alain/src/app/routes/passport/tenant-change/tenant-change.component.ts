@@ -30,15 +30,27 @@ export class TenantChangeComponent extends AppComponentBase implements OnInit {
   }
 
   showChangeModal(): void {
-    const subscription = this._modalService.open({
-      title: '变更租户',
-      content: TenantChangeModalComponent,
-      onOk() {
-        return this.appSession.init();
-      },
-      onCancel() {
-      },
-      footer: false
+    const modal = this._modalService.create({
+      nzTitle: '变更租户',
+      nzContent: TenantChangeModalComponent,
+      nzFooter: [{
+        label: '取消',
+        onClick: (componentInstance: TenantChangeModalComponent) => {
+          componentInstance.handleClose();
+        }
+      }, {
+        label: '确定',
+        type: 'primary',
+        onClick: (componentInstance: TenantChangeModalComponent) => {
+          componentInstance.submit();
+        }
+      }]
+    });
+    modal.afterClose.subscribe((result) => {
+      if (result.tenancyName) {
+        this.tenancyName = result.tenancyName;
+      }
+      this.appSession.init();
     });
   }
 }

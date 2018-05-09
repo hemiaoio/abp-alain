@@ -18,6 +18,7 @@ import { AppSessionService } from '@core/session/app-session.service';
 import { API_BASE_URL } from '@shared/service-proxies/service-proxies';
 
 import * as moment from 'moment';
+import { ReuseTabService } from '@delon/abc';
 /**
  * 用于应用启动时
  * 一般用来获取应用所需要的基础数据等
@@ -32,6 +33,7 @@ export class StartupService {
         @Inject(DA_SERVICE_TOKEN) private tokenService: ITokenService,
         private _sessionService: AppSessionService,
         private httpClient: HttpClient,
+        private reuseTabService: ReuseTabService,
         private injector: Injector) { }
 
     private viaHttp(resolve: any, reject: any) {
@@ -153,6 +155,7 @@ export class StartupService {
         // only works with promises
         // https://github.com/angular/angular/issues/15088
         return new Promise((resolve, reject) => {
+            this.reuseTabService.mode = 2;
             // http
             this.viaHttp(resolve, reject);
             // mock

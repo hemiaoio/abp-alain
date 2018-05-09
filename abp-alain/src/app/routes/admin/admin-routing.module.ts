@@ -11,8 +11,8 @@ const adminRoutes: Routes = [{
     canActivate: [AppRouteGuard],
     canActivateChild: [AppRouteGuard],
     children: [
-        { path: 'users', component: UserListComponent },
-        { path: 'roles', component: RoleListComponent }
+        { path: 'users', component: UserListComponent, data: { title: '用户' } },
+        { path: 'roles', component: RoleListComponent, data: { title: '角色' } }
     ]
 }];
 @NgModule({

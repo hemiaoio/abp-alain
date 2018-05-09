@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Subject } from 'rxjs/Subject';
 import { Component, OnInit, Injector, Input } from '@angular/core';
 import { AppComponentBase } from '@core/app-component-base';
-import { NzModalSubject } from 'ng-zorro-antd';
+import { NzModalRef } from 'ng-zorro-antd';
 import { AppTenantAvailabilityState } from '@core/enums/app-tenant-availability-state';
 
 @Component({
@@ -16,7 +16,7 @@ export class TenantChangeModalComponent extends AppComponentBase implements OnIn
   tenancyName: string = '';
   loading: boolean = false;
   error: string = '';
-  constructor(injector: Injector, private subject: NzModalSubject, private _accountService: AccountServiceProxy) {
+  constructor(injector: Injector, private modal: NzModalRef, private _accountService: AccountServiceProxy) {
     super(injector);
   }
 
@@ -24,12 +24,14 @@ export class TenantChangeModalComponent extends AppComponentBase implements OnIn
 
   }
 
-  handleClose($event): void {
-    this.subject.destroy('onCancel');
+  handleClose(): void {
+    this.modal.destroy('onCancel');
   }
   submit(): void {
     if (!this.tenancyName) {
       abp.multiTenancy.setTenantIdCookie(undefined);
+      this.modal.destroy({ tenancyName: null });
+      return;
     }
     this.loading = true;
     const input = new IsTenantAvailableInput();
@@ -40,7 +42,7 @@ export class TenantChangeModalComponent extends AppComponentBase implements OnIn
         switch (result.state) {
           case AppTenantAvailabilityState.Available:
             abp.multiTenancy.setTenantIdCookie(result.tenantId);
-            this.subject.destroy('onOk');
+            this.modal.destroy({ tenancyName: this.tenancyName });
             return;
           case AppTenantAvailabilityState.InActive:
             this.error = `租户` + this.tenancyName + `尚未激活！`;

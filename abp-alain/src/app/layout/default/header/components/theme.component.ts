@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { SettingsService, ThemesService, ThemeType } from '@delon/theme';
+import { SettingsService } from '@delon/theme';
+import { ThemeType } from '@core/themes/interfaces';
+import { ThemesService } from '@core/themes/themes.service';
 
 @Component({
     selector: 'header-theme',

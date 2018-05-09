@@ -1,15 +1,11 @@
-<form #f="ngForm" (ngSubmit)="submit()" nz-form [nzType]="'horizontal'">
-    <div>
-        <nz-alert *ngIf="error" [nzType]="'error'" [nzMessage]="error" [nzShowIcon]="true" class="mb-lg"></nz-alert>
-        <nz-input [(ngModel)]="tenancyName" name="tenancyName" [nzPlaceHolder]="'请输入目标租户名称'" [nzSize]="'large'" [nzDisabled]="'false'"></nz-input>
-        <span>留空则切换到主租户</span>
-        <div class="customize-footer">
-            <button nz-button [nzType]="'primary'" [nzLoading]="loading" [nzSize]="'large'" type="submit">
-                确定
-            </button>
-            <button nz-button [nzType]="'default'" [nzSize]="'large'" (click)="handleClose($event)">
-                返 回
-            </button>
-        </div>
-    </div>
+<form #f="ngForm" (ngSubmit)="submit()" nz-form>
+    <nz-form-item>
+        <nz-form-control>
+            <nz-input-group [nzPrefix]="prefix">
+                <nz-alert *ngIf="error" [nzType]="'error'" [nzMessage]="error" [nzShowIcon]="true" class="mb-lg"></nz-alert>
+                <input [(ngModel)]="tenancyName" name="tenancyName" nz-input [placeholder]="'请输入目标租户名称'" />
+            </nz-input-group>
+            <nz-form-explain>留空则切换到主租户</nz-form-explain>
+        </nz-form-control>
+    </nz-form-item>
 </form>

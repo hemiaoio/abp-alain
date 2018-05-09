@@ -1,6 +1,6 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { ThemesService, SettingsService, TitleService } from '@delon/theme';
+import { SettingsService, TitleService } from '@delon/theme';
 import { filter } from 'rxjs/operators';
 
 @Component({
@@ -9,12 +9,20 @@ import { filter } from 'rxjs/operators';
 })
 export class AppComponent implements OnInit {
 
-  @HostBinding('class.layout-fixed') get isFixed() { return this.settings.layout.fixed; }
-  @HostBinding('class.layout-boxed') get isBoxed() { return this.settings.layout.boxed; }
-  @HostBinding('class.aside-collapsed') get isCollapsed() { return this.settings.layout.collapsed; }
+  @HostBinding('class.layout-fixed')
+  get isFixed() {
+    return this.settings.layout.fixed;
+  }
+  @HostBinding('class.layout-boxed')
+  get isBoxed() {
+    return this.settings.layout.boxed;
+  }
+  @HostBinding('class.aside-collapsed')
+  get isCollapsed() {
+    return this.settings.layout.collapsed;
+  }
 
   constructor(
-    private theme: ThemesService,
     private settings: SettingsService,
     private router: Router,
     private titleSrv: TitleService) {
@@ -22,7 +30,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.router.events
-        .pipe(filter(evt => evt instanceof NavigationEnd))
-        .subscribe(() => this.titleSrv.setTitle());
+      .pipe(filter(evt => evt instanceof NavigationEnd))
+      .subscribe(() => this.titleSrv.setTitle());
   }
 }

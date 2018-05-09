@@ -5,6 +5,7 @@ import { AppUrlService } from '@core/nav/app-url.service';
 import { SessionServiceProxy } from '@shared/service-proxies/service-proxies';
 import { AbpTokenService } from '@core/session/abp-token.service';
 import { DA_SERVICE_TOKEN } from '@delon/auth';
+import { ThemesService } from '@core/themes/themes.service';
 
 
 @NgModule({
@@ -12,8 +13,9 @@ import { DA_SERVICE_TOKEN } from '@delon/auth';
     SessionServiceProxy,
     AppSessionService,
     AppUrlService,
+    ThemesService,
     { provide: DA_SERVICE_TOKEN, useClass: AbpTokenService }
-]
+  ]
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

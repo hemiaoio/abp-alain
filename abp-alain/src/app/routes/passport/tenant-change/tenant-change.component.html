@@ -1,8 +1,12 @@
-<nz-card [nzBordered]="false" *ngIf="isMultiTenancyEnabled">
+<nz-card [nzBordered]="false" *ngIf="isMultiTenancyEnabled" [nzExtra]="extra" [nzCover]="cover">
     <div class="body text-center">
         <span>
-            当前租户: <span *ngIf="tenancyName" title="{{name}}"><strong>{{tenancyName}}</strong></span>
-            <span *ngIf="!tenancyName">未选择</span> (<a href="javascript:void();" (click)="showChangeModal()">变更</a>)
+            当前租户:
+            <span *ngIf="tenancyName" title="{{name}}">
+                <strong>{{tenancyName}}</strong>
+            </span>
+        <span *ngIf="!tenancyName">未选择</span> (
+        <a href="javascript:;" (click)="showChangeModal()">变更</a> )
         </span>
     </div>
 </nz-card>

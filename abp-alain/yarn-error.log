@@ -1,14 +1,14 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\HeMiao\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js remove abp-ng2-module
+  C:\Program Files\nodejs\node.exe C:\Users\HeMiao\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add upath@1.0.5 --save
 
 PATH: 
-  C:\Program Files\Docker\Docker\Resources\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files (x86)\NuGet;C:\Program Files\nodejs\;C:\Program Files\php-5.6.32-nts-Win32-VC11-x64\;C:\Program Files (x86)\composer;C:\Users\HeMiao\AppData\Local\Programs\Python\Python36;C:\Users\HeMiao\AppData\Local\Programs\Python\Python36\Scripts;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\Git\cmd;C:\Program Files\TortoiseGit\bin;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\ManagementStudio\;C:\Program Files\PuTTY\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\HeMiao\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\HeMiao\AppData\Local\Programs\Python\Python36\;C:\Users\HeMiao\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Microsoft VS Code Insiders\bin;C:\Users\HeMiao\AppData\Roaming\npm;C:\Users\HeMiao\AppData\Roaming\Composer\vendor\bin;;C:\Users\HeMiao\.dotnet\tools;C:\Users\HeMiao\AppData\Local\Microsoft\WindowsApps;C:\Users\HeMiao\AppData\Local\Programs\Fiddler;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\
+  C:\Program Files\Docker\Docker\Resources\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files (x86)\NuGet;C:\Program Files\php-5.6.32-nts-Win32-VC11-x64\;C:\Program Files (x86)\composer;C:\Users\HeMiao\AppData\Local\Programs\Python\Python36;C:\Users\HeMiao\AppData\Local\Programs\Python\Python36\Scripts;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\Git\cmd;C:\Program Files\TortoiseGit\bin;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\ManagementStudio\;C:\Program Files\PuTTY\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Users\HeMiao\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\HeMiao\AppData\Local\Programs\Python\Python36\;C:\Users\HeMiao\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Microsoft VS Code Insiders\bin;C:\Users\HeMiao\AppData\Roaming\Composer\vendor\bin;;C:\Users\HeMiao\.dotnet\tools;C:\Users\HeMiao\AppData\Local\Microsoft\WindowsApps;C:\Users\HeMiao\AppData\Local\Programs\Fiddler;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Users\HeMiao\AppData\Roaming\npm
 
 Yarn version: 
   1.5.1
 
 Node version: 
-  8.7.0
+  10.0.0
 
 Platform: 
   win32 x64
@@ -49,6 +49,9 @@ npm manifest:
           "@angular/platform-browser": "^5.2.10",
           "@angular/platform-browser-dynamic": "^5.2.10",
           "@angular/router": "^5.2.10",
+          "@antv/data-set": "^0.8.7",
+          "@antv/g2": "^3.0.10",
+          "@antv/g2-plugin-slider": "^2.0.2",
           "@delon/abc": "^0.8.2",
           "@delon/acl": "^0.8.2",
           "@delon/auth": "^0.8.2",
@@ -410,19 +413,6 @@ Lockfile:
   abbrev@1.0.x:
     version "1.0.9"
     resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.0.9.tgz#91b4792588a7738c25f35dd6f63752a2f8776135"
-  
-  abp-ng2-module@^2.1.0:
-    version "2.1.0"
-    resolved "https://registry.yarnpkg.com/abp-ng2-module/-/abp-ng2-module-2.1.0.tgz#64c4f19982d02f50afd9a5139e9f374ed189616c"
-    dependencies:
-      "@angular/common" "^5.0.0"
-      "@angular/core" "^5.0.0"
-      "@angular/http" "^5.0.0"
-      abp-web-resources "^3.1.0"
-  
-  abp-web-resources@^3.1.0:
-    version "3.5.0"
-    resolved "https://registry.yarnpkg.com/abp-web-resources/-/abp-web-resources-3.5.0.tgz#bfad1eb60597e37ebfdd025bfb7d843bdabf17f8"
   
   accepts@1.3.3:
     version "1.3.3"
@@ -8456,4 +8446,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.26.tgz#7bdd72f7668c5a7ad6b118148b4ea39c59d08d2d"
 
 Trace: 
-  Error: EPERM: operation not permitted, unlink 'D:\Workspace\Other\HeProject\abp-alain\node_modules\abp-ng2-module\src'
+  Error: Found incompatible module
+      at new MessageError (C:\Users\HeMiao\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
+      at checkOne (C:\Users\HeMiao\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:62444:11)
+      at Object.check (C:\Users\HeMiao\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:62463:5)
+      at C:\Users\HeMiao\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:22803:73
+      at Generator.next (<anonymous>)
+      at step (C:\Users\HeMiao\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:98:30)
+      at C:\Users\HeMiao\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:109:13
