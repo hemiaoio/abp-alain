@@ -8,6 +8,7 @@
     "menus": [{
             "text": "",
             "translate": "main_navigation",
+            "hide": true,
             "group": true,
             "children": [{
                     "text": "首页",

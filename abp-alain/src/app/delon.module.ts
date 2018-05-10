@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { throwIfAlreadyLoaded } from '@core/module-import-guard';
 import { AlainThemeModule } from '@delon/theme';
-import { DelonABCModule } from '@delon/abc';
+import { DelonABCModule, AdSimpleTableConfig } from '@delon/abc';
 import { DelonAuthModule } from '@delon/auth';
 import { DelonACLModule } from '@delon/acl';
 import { DelonCacheModule } from '@delon/cache';
@@ -28,7 +28,9 @@ import { AdPageHeaderConfig } from '@delon/abc';
 export function pageHeaderConfig(): AdPageHeaderConfig {
     return Object.assign(new AdPageHeaderConfig(), { home_i18n: 'home' });
 }
-
+export function simpleTableConfig(): AdSimpleTableConfig {
+    return Object.assign(new AdSimpleTableConfig(), { ps: 15 });
+}
 import { DelonAuthConfig } from '@delon/auth';
 export function delonAuthConfig(): DelonAuthConfig {
     return Object.assign(new DelonAuthConfig(), <DelonAuthConfig>{
@@ -63,7 +65,7 @@ export class DelonModule {
             ngModule: DelonModule,
             providers: [
                 // TIPS：@delon/abc 有大量的全局配置信息，例如设置所有 `simple-table` 的页码默认为 `20` 行
-                // { provide: SimpleTableConfig, useFactory: simpleTableConfig }
+                { provide: AdSimpleTableConfig, useFactory: simpleTableConfig },
                 { provide: AdPageHeaderConfig, useFactory: pageHeaderConfig },
                 { provide: DelonAuthConfig, useFactory: delonAuthConfig },
             ],

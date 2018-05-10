@@ -1,10 +1,20 @@
-:host{
-        .user-block {
-            .user-block-dropdown{
-                display: block;
-            }
-            .info{
-                width: 100%;
+:host {
+    .user-block {
+        .user-block-dropdown {
+            display: block;
+            p {
+                margin-bottom: .1rem;
             }
         }
+        .info {
+            width: 100%;
+        }
+    }
+    ::ng-deep .nav {
+        li {
+            &.nav-group-title {
+                display: none;
+            }
+        }
+    }
 }

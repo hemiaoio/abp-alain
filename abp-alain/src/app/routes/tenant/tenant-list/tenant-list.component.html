@@ -1,3 +1,29 @@
-<p>
-  tenant-list works!
-</p>
+<full-content (fullscreenChange)="fullChange($event)">
+    <nz-card>
+        <div nz-row [nzGutter]="8">
+            <div nz-col [nzSpan]="12">
+
+            </div>
+            <div nz-col [nzSpan]="12">
+                <div class="text-right">
+                    <nz-dropdown>
+                        <button nz-button nz-dropdown>
+                  <span>Export</span>
+                  <i class="anticon anticon-down"></i>
+                </button>
+                        <ul nz-menu>
+                            <li nz-menu-item>Excel</li>
+                            <li nz-menu-item>JSON</li>
+                            <li nz-menu-item>PNG</li>
+                        </ul>
+                    </nz-dropdown>
+                    <button nz-button [nzType]="'default'" full-toggle class="ml-sm">
+                      <i class="anticon" [class.anticon-arrows-alt]="!isFullScreen"  [class.anticon-shrink]="isFullScreen"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <simple-table #st [data]="tenants" [total]="total" [columns]="columns" [scroll]="scroll">
+        </simple-table>
+    </nz-card>
+</full-content>
