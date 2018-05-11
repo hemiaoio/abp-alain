@@ -29,9 +29,12 @@ export function pageHeaderConfig(): AdPageHeaderConfig {
     return Object.assign(new AdPageHeaderConfig(), { home_i18n: 'home' });
 }
 export function simpleTableConfig(): AdSimpleTableConfig {
-    return Object.assign(new AdSimpleTableConfig(), { ps: 15 });
+    const tableConfig = new AdSimpleTableConfig();
+    tableConfig.ps = 15;
+    return tableConfig;
 }
 import { DelonAuthConfig } from '@delon/auth';
+import { extend } from '@core/utils/extend';
 export function delonAuthConfig(): DelonAuthConfig {
     return Object.assign(new DelonAuthConfig(), <DelonAuthConfig>{
         login_url: '/passport/login',
