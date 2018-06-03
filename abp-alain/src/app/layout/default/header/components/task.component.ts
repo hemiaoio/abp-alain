@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
         </nz-badge>
     </div>
     <div nz-menu class="wd-lg">
-        <nz-card nzTitle="Notifications" [nzLoading]="loading" class="ant-card__body-nopadding" [nzExtra]="extra" [nzCover]="cover">
+        <nz-card nzTitle="Notifications" [nzLoading]="loading" class="ant-card__body-nopadding">
             <ng-template #extra>
                 <i class="anticon anticon-plus"></i>
             </ng-template>

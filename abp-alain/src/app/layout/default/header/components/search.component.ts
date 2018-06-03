@@ -12,7 +12,7 @@ import {
   selector: 'header-search',
   template: `
   <nz-input-group nzAddOnBeforeIcon="anticon anticon-search">
-    <input nz-input [(ngModel)]="q" (focus)="qFocus()" (blur)="qBlur()" [placeholder]="'top-search-ph'" />
+    <input nz-input [(ngModel)]="q" (focus)="qFocus()" (blur)="qBlur()" [placeholder]="'please input the keyword!'" />
   </nz-input-group>
   `,
 })

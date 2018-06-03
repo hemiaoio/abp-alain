@@ -1,0 +1,137 @@
+<form nz-form
+      [formGroup]="userDetailForm"
+      (ngSubmit)="_submitForm($event, userDetailForm.value)"
+      nzLayout="horizontal">
+  <div class="modal-header">
+    <div class="modal-title">Edit user</div>
+  </div>
+  <nz-tabset>
+    <nz-tab nzTitle="User Details">
+      <nz-form-item nz-row>
+        <nz-form-label nzFor="userName"
+                       nzSpan="6"
+                       nzRequired>User name</nz-form-label>
+        <nz-form-control nzSpan="12"
+                         nzHasFeedback>
+          <input nz-input
+                 formControlName="userName" />
+          <nz-form-explain *ngIf="(userDetailForm.get('userName').dirty && userDetailForm.get('userName').errors) || userDetailForm.get('userName').pending ">
+            <ng-container *ngIf="userDetailForm.get('userName').hasError('required')">
+              Please input the user name!
+            </ng-container>
+            <ng-container *ngIf="userDetailForm.get('userName').hasError('duplicated')">
+              The userName is redundant!
+            </ng-container>
+            <ng-container *ngIf="userDetailForm.get('userName').pending">
+              Validating...
+            </ng-container>
+          </nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nz-row>
+        <nz-form-label nzFor="name"
+                       nzSpan="6"
+                       nzRequired>name</nz-form-label>
+        <nz-form-control nzSpan="4"
+                         nzHasFeedback>
+          <input nz-input
+                 formControlName="name" />
+          <nz-form-explain *ngIf="userDetailForm.get('name').dirty && userDetailForm.get('name').errors || userDetailForm.get('name').pending ">
+            <ng-container *ngIf="userDetailForm.get('name').hasError('required')">Please input the name! </ng-container>
+            <ng-container *ngIf="userDetailForm.get('name').hasError('duplicated')"> The name is redundant! </ng-container>
+            <ng-container *ngIf="userDetailForm.get('name').pending"> Validating... </ng-container>
+          </nz-form-explain>
+        </nz-form-control>
+        <nz-form-label nzFor="surname"
+                       nzSpan="4"
+                       nzRequired>surname</nz-form-label>
+        <nz-form-control nzSpan="4"
+                         nzHasFeedback>
+          <input nz-input
+                 formControlName="surname" />
+          <nz-form-explain *ngIf="userDetailForm.get('surname').dirty && userDetailForm.get('surname').errors || userDetailForm.get('surname').pending ">
+            <ng-container *ngIf="userDetailForm.get('surname').hasError('required')">Please input the surname! </ng-container>
+            <ng-container *ngIf="userDetailForm.get('surname').hasError('duplicated')"> The surname is redundant! </ng-container>
+            <ng-container *ngIf="userDetailForm.get('surname').pending"> Validating... </ng-container>
+          </nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nz-row>
+        <nz-form-label nzFor="emailAddress"
+                       nzSpan="6"
+                       nzRequired>Email address</nz-form-label>
+        <nz-form-control nzSpan="12"
+                         nzHasFeedback>
+          <input nz-input
+                 formControlName="emailAddress" />
+          <nz-form-explain *ngIf="userDetailForm.get('emailAddress').dirty && userDetailForm.get('emailAddress').errors || userDetailForm.get('emailAddress').pending ">
+            <ng-container *ngIf="userDetailForm.get('emailAddress').hasError('required')">
+              Please input the email address!
+            </ng-container>
+            <ng-container *ngIf="userDetailForm.get('emailAddress').hasError('email')">
+              The Email address is invalid!
+            </ng-container>
+            <ng-container *ngIf="userDetailForm.get('emailAddress').hasError('duplicated')">
+              The Email address is redundant!
+            </ng-container>
+            <ng-container *ngIf="userDetailForm.get('emailAddress').pending"> Validating... </ng-container>
+          </nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nz-row>
+        <nz-form-control nzSpan="12"
+                         [nzOffset]="6">
+          <label nz-checkbox
+                 formControlName="isActive">
+                        <span>Is Active </span>
+                        </label>
+        </nz-form-control>
+      </nz-form-item>
+    </nz-tab>
+    <nz-tab nzTitle="User Roles">
+      <div nz-row
+           style="border-bottom: 1px solid rgb(233, 233, 233);">
+        <div nz-col
+             nzOffset="1"
+             style="line-height: 2.5rem;">
+          <label nz-checkbox
+                 [(ngModel)]="allRolesChecked"
+                 (ngModelChange)="updateAllChecked($event)"
+                 [nzIndeterminate]="indeterminate"
+                 [ngModelOptions]="{standalone: true}">
+                Check all
+              </label>
+        </div>
+      </div>
+      <div nz-row>
+        <ng-container *ngFor="let item of roles">
+          <div nz-col
+               style="line-height: 2.5rem;"
+               nzOffset="2"
+               nzSpan="4">
+            <label nz-checkbox
+                   title="{{item.description}}"
+                   nzValue="{{item.normalizedName}}"
+                   [(ngModel)]="item.checked"
+                   (ngModelChange)="roleChange($event)"
+                   [ngModelOptions]="{standalone: true}">
+                   {{item.displayName}}
+            </label>
+          </div>
+        </ng-container>
+      </div>
+    </nz-tab>
+  </nz-tabset>
+  <div class="modal-footer">
+    <button nz-button
+            [nzType]="'default'"
+            type="button"
+            (click)="cancel($event)">
+                  Cancel
+          </button>
+    <button nz-button
+            [disabled]="!userDetailForm.valid"
+            [nzType]="'primary'"
+            type="submit"> OK </button>
+  </div>
+</form>

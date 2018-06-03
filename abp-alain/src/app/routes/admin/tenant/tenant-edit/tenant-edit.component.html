@@ -1,0 +1,39 @@
+<form nz-form [formGroup]="tenantEditForm" (ngSubmit)="_submitForm($event, tenantEditForm.value)" [nzLayout]="'horizontal'">
+  <div class="modal-header">
+    <div class="modal-title">Edit tenant</div>
+  </div>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired>Tenancy name</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzHasFeedback>
+      <input nz-input formControlName="tenancyName" />
+      <nz-form-explain *ngIf="tenantEditForm.get('tenancyName').dirty && tenantEditForm.get('tenancyName').errors || tenantEditForm.get('tenancyName').pending ">
+        <ng-container *ngIf="tenantEditForm.get('tenancyName').hasError('required')">Please input your Tenancy name! </ng-container>
+        <ng-container *ngIf="tenantEditForm.get('tenancyName').hasError('duplicated')"> The tenancyName is redundant! </ng-container>
+        <ng-container *ngIf="tenantEditForm.get('tenancyName').pending"> Validating... </ng-container>
+      </nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired> Display Name</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzHasFeedback>
+      <input nz-input formControlName="name" />
+      <nz-form-explain *ngIf="tenantEditForm.get('name').dirty && tenantEditForm.get('name').errors ">
+        <ng-container *ngIf="tenantEditForm.get('name').hasError('required')">Please input your Tenancy display name! </ng-container>
+      </nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control [nzSpan]="12" [nzOffset]="7">
+      <label nz-checkbox formControlName="isActive">
+        <span>Is Active </span>
+      </label>
+    </nz-form-control>
+  </nz-form-item>
+
+  <div class="modal-footer">
+    <button nz-button [nzType]="'default'" type="button" (click)="cancel()">
+      Cancel
+    </button>
+    <button nz-button [nzType]="'primary'" type="submit"> OK </button>
+  </div>
+</form>

@@ -1,11 +1,23 @@
-<form #f="ngForm" (ngSubmit)="submit()" nz-form>
-    <nz-form-item>
-        <nz-form-control>
-            <nz-input-group [nzPrefix]="prefix">
-                <nz-alert *ngIf="error" [nzType]="'error'" [nzMessage]="error" [nzShowIcon]="true" class="mb-lg"></nz-alert>
-                <input [(ngModel)]="tenancyName" name="tenancyName" nz-input [placeholder]="'请输入目标租户名称'" />
-            </nz-input-group>
-            <nz-form-explain>留空则切换到主租户</nz-form-explain>
-        </nz-form-control>
-    </nz-form-item>
+<form #f="ngForm"
+      (ngSubmit)="submit()"
+      nz-form>
+  <nz-form-item>
+    <nz-form-control>
+      <nz-input-group [nzPrefix]="prefix">
+        <nz-alert *ngIf="error"
+                  [nzType]="'error'"
+                  [nzMessage]="error"
+                  [nzShowIcon]="true"
+                  class="mb-lg"></nz-alert>
+        <input [(ngModel)]="tenancyName"
+               name="tenancyName"
+               nz-input
+               [placeholder]="'请输入目标租户名称'" />
+        <ng-template #prefix>
+          <i class="anticon anticon-api"></i>
+        </ng-template>
+      </nz-input-group>
+      <nz-form-explain>留空则切换到主租户</nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
 </form>

@@ -1,7 +1,5 @@
 import { AccountServiceProxy, IsTenantAvailableInput } from '@shared/service-proxies/service-proxies';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Subject } from 'rxjs/Subject';
-import { Component, OnInit, Injector, Input } from '@angular/core';
+import { Component, OnInit, Injector } from '@angular/core';
 import { AppComponentBase } from '@core/app-component-base';
 import { NzModalRef } from 'ng-zorro-antd';
 import { AppTenantAvailabilityState } from '@core/enums/app-tenant-availability-state';
@@ -16,7 +14,9 @@ export class TenantChangeModalComponent extends AppComponentBase implements OnIn
   tenancyName: string = '';
   loading: boolean = false;
   error: string = '';
-  constructor(injector: Injector, private modal: NzModalRef, private _accountService: AccountServiceProxy) {
+  constructor(injector: Injector,
+    private modal: NzModalRef,
+    private _accountService: AccountServiceProxy) {
     super(injector);
   }
 

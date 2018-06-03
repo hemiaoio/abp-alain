@@ -1,0 +1,113 @@
+<form nz-form
+      [formGroup]="roleCreateForm"
+      (ngSubmit)="_submitForm($event, roleCreateForm.value)"
+      nzLayout="horizontal">
+  <div class="modal-header">
+    <div class="modal-title">Role create</div>
+  </div>
+  <nz-form-item nz-row>
+    <nz-form-label nzFor="name"
+                   nzSpan="5"
+                   nzRequired>
+      Role name
+    </nz-form-label>
+    <nz-form-control nzSpan="12"
+                     nzHasFeedback>
+      <input nz-input
+             formControlName="name" />
+      <nz-form-explain *ngIf="roleCreateForm.get('name').dirty && roleCreateForm.get('name').errors">
+        <ng-container *ngIf="roleCreateForm.get('name').hasError('required')">
+          Please input the role name!
+        </ng-container>
+        <ng-container *ngIf="roleCreateForm.get('name').hasError('duplicated')">
+          The role name is redundant!
+        </ng-container>
+        <ng-container *ngIf="roleCreateForm.get('name').pending">
+          Validating...
+        </ng-container>
+      </nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item nz-row>
+    <nz-form-label nzFor="displayName"
+                   nzSpan="5"
+                   nzRequired>
+      Display name
+    </nz-form-label>
+    <nz-form-control nzSpan="12">
+      <input nz-input
+             formControlName="displayName" />
+      <nz-form-explain *ngIf="roleCreateForm.get('displayName').dirty && roleCreateForm.get('displayName').errors">
+        <ng-container *ngIf="roleCreateForm.get('displayName').hasError('required')">
+          Please input the role's display name!
+        </ng-container>
+        <ng-container *ngIf="roleCreateForm.get('displayName').hasError('duplicated')">
+          The role's display name is redundant!
+        </ng-container>
+        <ng-container *ngIf="roleCreateForm.get('displayName').pending">
+          Validating...
+        </ng-container>
+      </nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item nz-row>
+    <nz-form-label nzFor="description"
+                   nzSpan="5">
+      Description
+    </nz-form-label>
+    <nz-form-control nzSpan="12">
+      <input nz-input
+             formControlName="description" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <div nz-row
+       style="border-bottom: 1px solid rgb(233, 233, 233);">
+    <div nz-col>
+      <h3>Permissions</h3>
+    </div>
+  </div>
+  <div nz-row>
+    <div nz-col
+         nzOffset="1"
+         style="line-height: 2.5rem;">
+      <label nz-checkbox
+             [(ngModel)]="allPerssionsChecked"
+             (ngModelChange)="updateAllChecked($event)"
+             [nzIndeterminate]="indeterminate"
+             [ngModelOptions]="{standalone: true}">
+         Check all
+       </label>
+    </div>
+  </div>
+  <div nz-row>
+    <ng-container *ngFor="let item of permissions">
+      <div nz-col
+           style="line-height: 2.5rem;"
+           nzOffset="2"
+           nzSpan="6">
+        <label nz-checkbox
+               title="{{item.description}}"
+               nzValue="{{item.name}}"
+               [(ngModel)]="item.checked"
+               (ngModelChange)="permissionChanged($event)"
+               [ngModelOptions]="{standalone: true}">{{item.displayName}}</label>
+      </div>
+    </ng-container>
+  </div>
+  <div class="modal-footer">
+    <button nz-button
+            [nzType]="'default'"
+            type="button"
+            (click)="cancel($event)">
+            Cancel
+    </button>
+    <button nz-button
+            [disabled]="!roleCreateForm.valid"
+            [nzType]="'primary'"
+            type="submit"> OK </button>
+  </div>
+
+</form>

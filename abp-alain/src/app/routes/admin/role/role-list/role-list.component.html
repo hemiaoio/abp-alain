@@ -1,0 +1,96 @@
+<div class="content__title">
+  <h1>Role management</h1>
+</div>
+<full-content (fullscreenChange)="fullChange($event)">
+  <nz-card>
+    <div nz-row
+         [nzGutter]="8">
+      <div nz-col
+           [nzSpan]="12">
+      </div>
+      <div nz-col
+           [nzSpan]="12">
+        <div class="text-right table-operations operations-top">
+          <nz-button-group>
+            <button nz-button
+                    [nzType]="'default'"
+                    (click)="loadData(true)">
+              <i class="anticon anticon-sync"></i>
+            </button>
+          </nz-button-group>
+          <button nz-button
+                  full-toggle
+                  [nzType]="'default'">
+            <i class="anticon" [class.anticon-arrows-alt]="!isFullScreen" [class.anticon-shrink]="isFullScreen"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <nz-table #nzTable
+              nzShowSizeChanger
+              [nzFrontPagination]="false"
+              [nzData]="datas"
+              [nzLoading]="loading"
+              [nzTotal]="total"
+              [(nzPageIndex)]="pageIndex"
+              [(nzPageSize)]="pageSize"
+              (nzPageIndexChange)="loadData()"
+              (nzPageSizeChange)="loadData(true)">
+      <thead>
+        <tr>
+          <th><span>Role name</span></th>
+          <th><span>Display name</span></th>
+          <th><span>Actions</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of nzTable.data">
+          <td>{{i.name}}</td>
+          <td>{{i.displayName}}</td>
+          <td>
+            <nz-dropdown>
+              <a class="ant-dropdown-link"
+                 nz-dropdown>
+                <i class="anticon anticon-menu-unfold"></i>
+              </a>
+              <ul nz-menu>
+                <li nz-menu-item>
+                  <a href="javascript:;"
+                     (click)="edit(i)">
+                    <i class="anticon anticon-edit"></i>
+                    Edit
+                  </a>
+                </li>
+                <li nz-menu-item>
+                  <nz-popconfirm [nzTitle]="'Are you sure delete this user？'"
+                                 (nzOnConfirm)="del(i)">
+                    <a nz-popconfirm
+                       href="javascript:;">
+                      <i class="anticon anticon-delete"></i> Delete
+                    </a>
+                  </nz-popconfirm>
+                </li>
+              </ul>
+            </nz-dropdown>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+    <div nz-row
+         [nzGutter]="8">
+      <div nz-col
+           [nzSpan]="12">
+      </div>
+      <div nz-col
+           [nzSpan]="12">
+        <div class="text-right table-operations operations-bottom">
+          <button nz-button
+                  [nzType]="'default'"
+                  (click)="create($event)">
+            <i class="anticon anticon-plus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nz-card>
+</full-content>

@@ -37,9 +37,7 @@ import { AboutComponent } from './about/about.component';
         Exception404Component,
         Exception500Component,
         AboutComponent
-,
-    AboutComponent
-],
+    ],
     entryComponents: [TenantChangeModalComponent]
 
 })

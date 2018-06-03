@@ -12,7 +12,7 @@ import { RoutesModule } from './routes/routes.module';
 import { LayoutModule } from './layout/layout.module';
 import { StartupService } from '@core/startup/startup.service';
 import { DefaultInterceptor } from '@core/net/default.interceptor';
-import { SimpleInterceptor } from '@delon/auth';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 // angular i18n
 import { registerLocaleData } from '@angular/common';
 import localeZhHans from '@angular/common/locales/zh-Hans';
@@ -22,9 +22,15 @@ registerLocaleData(localeZhHans);
 import { JsonSchemaModule } from '@shared/json-schema/json-schema.module';
 import { AppConsts } from '@core/app-consts';
 import { API_BASE_URL } from '@shared/service-proxies/service-proxies';
+import { AppSessionService } from '@core/session/app-session.service';
 
 export function StartupServiceFactory(startupService: StartupService): Function {
     return () => startupService.load();
+}
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http, `assets/tmp/i18n/`, '.json');
 }
 
 export function getRemoteServiceBaseUrl() {
@@ -36,9 +42,9 @@ export function getRemoteServiceBaseUrl() {
         AppComponent
     ],
     imports: [
-        BrowserModule, 
+        BrowserModule,
         BrowserAnimationsModule,
-        HttpClientModule, 
+        HttpClientModule,
         AbpModule,
         DelonModule.forRoot(),
         CoreModule,

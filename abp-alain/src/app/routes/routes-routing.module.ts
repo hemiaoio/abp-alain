@@ -30,7 +30,6 @@ const routes: Routes = [
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
             { path: 'dashboard', component: DashboardComponent, data: { title: '仪表盘' } },
             // 业务子模块
-            { path: 'tenant', loadChildren: './tenant/tenant.module#TenantModule' },
             { path: 'admin', loadChildren: './admin/admin.module#AdminModule' },
             { path: 'about', component: AboutComponent, data: { title: '关于' } }
         ]

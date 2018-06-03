@@ -10,7 +10,9 @@ import { SettingsService } from '@delon/theme';
   styleUrls: ['./sidebar.component.less']
 })
 export class SidebarComponent extends AppComponentBase {
-  constructor(injector: Injector, public settings: SettingsService, public msgSrv: NzMessageService) {
+  constructor(injector: Injector,
+    public settings: SettingsService,
+    public msgSrv: NzMessageService) {
     super(injector);
   }
 }

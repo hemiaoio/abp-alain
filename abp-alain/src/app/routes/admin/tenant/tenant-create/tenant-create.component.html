@@ -1,0 +1,93 @@
+<form nz-form
+      [formGroup]="tenantCreateForm"
+      (ngSubmit)="_submitForm($event, tenantCreateForm.value)"
+      [nzLayout]="'horizontal'">
+  <div class="modal-header">
+    <div class="modal-title">Edit tenant</div>
+  </div>
+  <nz-form-item nz-row>
+    <nz-form-label [nzSpan]="7"
+                   nzRequired>Tenancy name</nz-form-label>
+    <nz-form-control [nzSpan]="12"
+                     nzHasFeedback>
+      <input nz-input
+             formControlName="tenancyName" />
+      <nz-form-explain *ngIf="tenantCreateForm.get('tenancyName').dirty && tenantCreateForm.get('tenancyName').errors || tenantCreateForm.get('tenancyName').pending ">
+        <ng-container *ngIf="tenantCreateForm.get('tenancyName').hasError('required')">Please input your Tenancy name! </ng-container>
+        <ng-container *ngIf="tenantCreateForm.get('tenancyName').hasError('duplicated')">
+          The tenancyName is redundant! </ng-container>
+        <ng-container *ngIf="tenantCreateForm.get('tenancyName').pending"> Validating... </ng-container>
+      </nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item nz-row>
+    <nz-form-label [nzSpan]="7"
+                   nzRequired> Display Name</nz-form-label>
+    <nz-form-control [nzSpan]="12"
+                     nzHasFeedback>
+      <input nz-input
+             formControlName="name" />
+      <nz-form-explain *ngIf="tenantCreateForm.get('name').dirty && tenantCreateForm.get('name').errors ">
+        <ng-container *ngIf="tenantCreateForm.get('name').hasError('required')">Please input your Tenancy display name! </ng-container>
+      </nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item nz-row>
+    <nz-form-label [nzSpan]="7"
+                   nzRequired>Admin email address</nz-form-label>
+    <div nz-form-control
+         nz-col
+         [nzSpan]="12"
+         nzHasFeedback>
+      <input nz-input
+             type="email"
+             formControlName="adminEmailAddress" />
+      <div nz-form-explain
+           *ngIf="tenantCreateForm.get('adminEmailAddress').dirty && tenantCreateForm.get('adminEmailAddress').errors">
+        <ng-container *ngIf="tenantCreateForm.get('adminEmailAddress').hasError('required')">Please input your Tenancy admin user email address!</ng-container>
+        <ng-container *ngIf="tenantCreateForm.get('adminEmailAddress').hasError('email')">Please input a email address!</ng-container>
+      </div>
+    </div>
+  </nz-form-item>
+  <nz-form-item nz-row>
+    <nz-form-control [nzSpan]="12"
+                     [nzOffset]="7">
+      <label nz-checkbox
+             formControlName="isActive">
+                                        <span>Is Active </span>
+                                </label>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item nz-row>
+    <nz-form-label [nzSpan]="7">Database connection string</nz-form-label>
+    <div nz-form-control
+         nz-col
+         [nzSpan]="12">
+      <input nz-input
+             type="text"
+             formControlName="connectionString" />
+    </div>
+  </nz-form-item>
+  <nz-form-item nz-row
+                style="margin-bottom:8px;">
+    <div nz-col
+         [nzSpan]="14"
+         [nzOffset]="4">
+      <label>
+        <span>Default password is 123qwe</span>
+      </label>
+    </div>
+  </nz-form-item>
+
+  <div class="modal-footer">
+    <button nz-button
+            [nzType]="'default'"
+            type="button"
+            (click)="cancel()">
+                        Cancel
+                </button>
+    <button nz-button
+            [nzType]="'primary'"
+            type="submit"> OK </button>
+  </div>
+</form>

@@ -1,111 +1,113 @@
 {
-    "app": {
-        "name": "ng-alain",
-        "description": "Ng-zorro admin panel front-end framework",
-        "remoteServiceBaseUrl": "http://47.98.113.21",
-        "appBaseUrl": "http://localhost:4200"
-    },
-    "menus": [{
-            "text": "",
-            "translate": "main_navigation",
-            "hide": true,
-            "group": true,
-            "children": [{
-                    "text": "首页",
-                    "link": "/dashboard",
-                    "icon": "icon-home"
-                }, {
-                    "text": "租户管理",
-                    "link": "/tenant/list",
-                    "translate": "tenants",
-                    "icon": "anticon anticon-switcher",
-                    "permission": "Pages.Tenants"
-                }, {
-                    "text": "角色管理",
-                    "link": "/admin/roles",
-                    "translate": "admin-roles",
-                    "icon": "anticon anticon-solution",
-                    "permission": "Pages.Roles"
+  "app": {
+    "name": "ng-alain",
+    "description": "Ng-zorro admin panel front-end framework",
+    "remoteServiceBaseUrl": "http://47.98.113.21",
+    "appBaseUrl": "http://localhost:4200"
+  },
+  "menus": [{
+      "text": "",
+      "translate": "main_navigation",
+      "hide": true,
+      "group": true,
+      "children": [{
+          "text": "首页",
+          "link": "/dashboard",
+          "icon": "icon-home"
+        },
+        {
+          "text": "租户管理",
+          "link": "/admin/tenants",
+          "translate": "tenants",
+          "icon": "anticon anticon-switcher",
+          "permission": "Pages.Tenants"
+        },
+        {
+          "text": "用户管理",
+          "link": "/admin/users",
+          "translate": "admin-users",
+          "icon": "anticon anticon-team",
+          "permission": "Pages.Users"
+        },
+        {
+          "text": "角色管理",
+          "link": "/admin/roles",
+          "translate": "admin-roles",
+          "icon": "anticon anticon-solution",
+          "permission": "Pages.Roles"
+        },
+        {
+          "text": "关于",
+          "link": "/about",
+          "translate": "about",
+          "icon": "anticon anticon-info-circle-o"
+        },
+        {
+          "text": "多级菜单",
+          "icon": "anticon anticon-bars",
+          "translate": "mutil-level",
+          "children": [{
+              "text": "ASP.NET Boilerplate",
+              "children": [{
+                  "text": "Home",
+                  "target": "_blank",
+                  "externalLink": "https://aspnetboilerplate.com/?ref=abptmpl"
                 },
                 {
-                    "text": "用户管理",
-                    "link": "/admin/users",
-                    "translate": "admin-users",
-                    "icon": "anticon anticon-team",
-                    "permission": "Pages.Users"
+                  "text": "Templates",
+                  "target": "_blank",
+                  "externalLink": "https://aspnetboilerplate.com/Templates?ref=abptmpl"
                 },
                 {
-                    "text": "关于",
-                    "link": "/about",
-                    "translate": "about",
-                    "icon": "anticon anticon-info-circle-o"
+                  "text": "Samples",
+                  "target": "_blank",
+                  "externalLink": "https://aspnetboilerplate.com/Samples?ref=abptmpl"
                 },
                 {
-                    "text": "多级菜单",
-                    "icon": "anticon anticon-bars",
-                    "translate": "mutil-level",
-                    "children": [{
-                            "text": "ASP.NET Boilerplate",
-                            "children": [{
-                                    "text": "Home",
-                                    "target": "_blank",
-                                    "externalLink": "https://aspnetboilerplate.com/?ref=abptmpl"
-                                },
-                                {
-                                    "text": "Templates",
-                                    "target": "_blank",
-                                    "externalLink": "https://aspnetboilerplate.com/Templates?ref=abptmpl"
-                                },
-                                {
-                                    "text": "Samples",
-                                    "target": "_blank",
-                                    "externalLink": "https://aspnetboilerplate.com/Samples?ref=abptmpl"
-                                },
-                                {
-                                    "text": "Documents",
-                                    "target": "_blank",
-                                    "externalLink": "https://aspnetboilerplate.com/Pages/Documents?ref=abptmpl"
-                                }
-                            ]
-                        },
-                        {
-                            "text": "ASP.NET Zero",
-                            "children": [{
-                                    "text": "Home",
-                                    "target": "_blank",
-                                    "externalLink": "https://aspnetzero.com?ref=abptmpl"
-                                },
-                                {
-                                    "text": "Description",
-                                    "target": "_blank",
-                                    "externalLink": "https://aspnetzero.com/?ref=abptmpl#description"
-                                },
-                                {
-                                    "text": "Features",
-                                    "target": "_blank",
-                                    "externalLink": "https://aspnetzero.com/?ref=abptmpl#features"
-                                },
-                                {
-                                    "text": "Pricing",
-                                    "target": "_blank",
-                                    "externalLink": "https://aspnetzero.com/?ref=abptmpl#pricing"
-                                },
-                                {
-                                    "text": "Faq",
-                                    "target": "_blank",
-                                    "externalLink": "https://aspnetzero.com/Faq?ref=abptmpl"
-                                },
-                                {
-                                    "text": "Documents",
-                                    "target": "_blank",
-                                    "externalLink": "https://aspnetzero.com/Documents?ref=abptmpl"
-                                }
-                            ]
-                        }
-                    ]
+                  "text": "Documents",
+                  "target": "_blank",
+                  "externalLink": "https://aspnetboilerplate.com/Pages/Documents?ref=abptmpl"
                 }
-            ]
+              ]
+            },
+            {
+              "text": "ASP.NET Zero",
+              "children": [{
+                  "text": "Home",
+                  "target": "_blank",
+                  "externalLink": "https://aspnetzero.com?ref=abptmpl"
+                },
+                {
+                  "text": "Description",
+                  "target": "_blank",
+                  "externalLink": "https://aspnetzero.com/?ref=abptmpl#description"
+                },
+                {
+                  "text": "Features",
+                  "target": "_blank",
+                  "externalLink": "https://aspnetzero.com/?ref=abptmpl#features"
+                },
+                {
+                  "text": "Pricing",
+                  "target": "_blank",
+                  "externalLink": "https://aspnetzero.com/?ref=abptmpl#pricing"
+                },
+                {
+                  "text": "Faq",
+                  "target": "_blank",
+                  "externalLink": "https://aspnetzero.com/Faq?ref=abptmpl"
+                },
+                {
+                  "text": "Documents",
+                  "target": "_blank",
+                  "externalLink": "https://aspnetzero.com/Documents?ref=abptmpl"
+                }
+              ]
+            }
+          ]
         }
+      ]
+    }
 
-    ]
+  ]
 }

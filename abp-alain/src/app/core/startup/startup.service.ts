@@ -17,7 +17,6 @@ import { AppSessionService } from '@core/session/app-session.service';
 
 import { API_BASE_URL } from '@shared/service-proxies/service-proxies';
 
-import * as moment from 'moment';
 import { ReuseTabService } from '@delon/abc';
 /**
  * 用于应用启动时
@@ -68,7 +67,6 @@ export class StartupService {
                 const abpData: any = result.abpData;
                 extend(true, abp, abpData.result);
                 abp.clock.provider = this.getCurrentClockProvider(abp.clock.provider);
-                moment.locale(abp.localization.currentLanguage.name);
                 this.checkMenusPermission(appData.menus);
                 this.menuService.clear();
                 this.menuService.add(appData.menus);

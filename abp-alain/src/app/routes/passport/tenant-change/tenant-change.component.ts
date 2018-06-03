@@ -47,9 +47,7 @@ export class TenantChangeComponent extends AppComponentBase implements OnInit {
       }]
     });
     modal.afterClose.subscribe((result) => {
-      if (result.tenancyName) {
-        this.tenancyName = result.tenancyName;
-      }
+      this.tenancyName = result.tenancyName;
       this.appSession.init();
     });
   }

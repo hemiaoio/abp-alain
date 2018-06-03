@@ -1,4 +1,3 @@
-import { SettingService } from './../../abp/settings/setting.service';
 import { Injectable, Inject } from '@angular/core';
 import { SessionServiceProxy, UserLoginInfoDto, TenantLoginInfoDto, ApplicationInfoDto, GetCurrentLoginInformationsOutput } from '@shared/service-proxies/service-proxies';
 import { AbpMultiTenancyService } from '@abp/multi-tenancy/abp-multi-tenancy.service';

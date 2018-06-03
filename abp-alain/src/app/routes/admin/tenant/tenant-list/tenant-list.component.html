@@ -1,0 +1,49 @@
+<full-content (fullscreenChange)="fullChange($event)">
+        <nz-card>
+                <div nz-row
+                         [nzGutter]="8">
+                        <div nz-col
+                                 [nzSpan]="12">
+                        </div>
+                        <div nz-col
+                                 [nzSpan]="12">
+                                <div class="text-right table-operations operations-top">
+                                        <button nz-button
+                                                        [nzType]="'default'"
+                                                        (click)="refresh($event)">
+                                                        <i class="anticon anticon-sync"></i>
+                                                        Refresh
+                                                </button>
+                                        <button nz-button
+                                                        full-toggle
+                                                        [nzType]="'default'">
+                                                <i class="anticon" [class.anticon-arrows-alt]="!isFullScreen" [class.anticon-shrink]="isFullScreen"></i>
+                                        </button>
+                                </div>
+                        </div>
+                </div>
+                <simple-table #st
+                                            [data]="tenants"
+                                            [total]="total"
+                                            [columns]="columns"
+                                            [showTotal]="true">
+                </simple-table>
+
+                <div nz-row
+                         [nzGutter]="8">
+                        <div nz-col
+                                 [nzSpan]="12">
+                        </div>
+                        <div nz-col
+                                 [nzSpan]="12">
+                                <div class="text-right table-operations operations-bottom">
+                                        <button nz-button
+                                                        [nzType]="'default'"
+                                                        (click)="createTenant($event)">
+                                                        <i class="anticon anticon-plus"></i>
+                                                </button>
+                                </div>
+                        </div>
+                </div>
+        </nz-card>
+</full-content>
