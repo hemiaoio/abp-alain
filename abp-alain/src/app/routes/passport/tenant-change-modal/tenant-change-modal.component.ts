@@ -1,31 +1,34 @@
-import { AccountServiceProxy, IsTenantAvailableInput } from '@shared/service-proxies/service-proxies';
-import { Component, OnInit, Injector } from '@angular/core';
-import { AppComponentBase } from '@core/app-component-base';
-import { NzModalRef } from 'ng-zorro-antd';
-import { AppTenantAvailabilityState } from '@core/enums/app-tenant-availability-state';
+import {
+  AccountServiceProxy,
+  IsTenantAvailableInput
+} from "@shared/service-proxies/service-proxies";
+import { Component, OnInit, Injector } from "@angular/core";
+import { AppComponentBase } from "@core/app-component-base";
+import { NzModalRef } from "ng-zorro-antd";
+import { AppTenantAvailabilityState } from "@core/enums/app-tenant-availability-state";
 
 @Component({
-  selector: 'he-tenant-change-modal',
-  templateUrl: './tenant-change-modal.component.html',
-  styleUrls: ['./tenant-change-modal.component.less'],
+  selector: "he-tenant-change-modal",
+  templateUrl: "./tenant-change-modal.component.html",
   providers: [AccountServiceProxy]
 })
-export class TenantChangeModalComponent extends AppComponentBase implements OnInit {
-  tenancyName: string = '';
+export class TenantChangeModalComponent extends AppComponentBase
+  implements OnInit {
+  tenancyName: string = "";
   loading: boolean = false;
-  error: string = '';
-  constructor(injector: Injector,
+  error: string = "";
+  constructor(
+    injector: Injector,
     private modal: NzModalRef,
-    private _accountService: AccountServiceProxy) {
+    private _accountService: AccountServiceProxy
+  ) {
     super(injector);
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   handleClose(): void {
-    this.modal.destroy('onCancel');
+    this.modal.destroy("onCancel");
   }
   submit(): void {
     if (!this.tenancyName) {
@@ -36,9 +39,12 @@ export class TenantChangeModalComponent extends AppComponentBase implements OnIn
     this.loading = true;
     const input = new IsTenantAvailableInput();
     input.tenancyName = this.tenancyName;
-    this._accountService.isTenantAvailable(input)
-      .finally(() => { this.loading = false; })
-      .subscribe((result) => {
+    this._accountService
+      .isTenantAvailable(input)
+      .finally(() => {
+        this.loading = false;
+      })
+      .subscribe(result => {
         switch (result.state) {
           case AppTenantAvailabilityState.Available:
             abp.multiTenancy.setTenantIdCookie(result.tenantId);
